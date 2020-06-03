@@ -145,7 +145,7 @@ const toggleFavorite = (e) => {
 
   // favorites にデータが存在しているか
   if (dbdata.favorites && dbdata.favorites[messageId]) {
-    // TODO: favorites から該当のお気に入り情報を削除
+    // favorites から該当のお気に入り情報を削除
     firebase
       .database()
       .ref(`favorites/${currentUID}/${messageId}`)
@@ -223,7 +223,7 @@ const createMessageDiv = (messageId, message) => {
     toggleFavorite,
   );
 
-  // TODO: お気に入りONのとき、お気に入りリンクのアイコンを 塗りつぶしあり(fa-star) に設定する
+  // お気に入りONのとき、お気に入りリンクのアイコンを 塗りつぶしあり(fa-star) に設定する
   if (dbdata.favorites && dbdata.favorites[messageId]) {
     divTag
       .find('.message__favorite-icon')
@@ -518,7 +518,7 @@ const loadChatView = () => {
       return;
     }
 
-    // TODO: 該当するデータをdbdata.favoritesから削除する
+    // 該当するデータをdbdata.favoritesから削除する
     delete dbdata.favorites[messageId];
     
     
@@ -526,7 +526,7 @@ const loadChatView = () => {
     // お気に入り一覧モーダルから該当のお気に入り情報を削除する
     $(`#favorite-message-id-${messageId}`).remove();
 
-    // TODO: お気に入りリンクのアイコンを、塗りつぶしなし(fa-star-o) に変更する
+    // お気に入りリンクのアイコンを、塗りつぶしなし(fa-star-o) に変更する
     $('#message-id-' + messageId)
       .find('.message__favorite-icon')
       .removeClass('fa-star')
@@ -552,7 +552,7 @@ const loadChatView = () => {
     // お気に入り一覧モーダルを更新する
     addFavoriteMessage(messageId, favorite.message);
 
-    // TODO: お気に入りリンクのアイコンを、塗りつぶしあり(fa-star) に変更する
+    // お気に入りリンクのアイコンを、塗りつぶしあり(fa-star) に変更する
     $('#message-id-' + messageId)
       .find('.message__favorite-icon')
       .removeClass('fa-star-o')
